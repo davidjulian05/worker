@@ -1,1 +1,342 @@
-Hi
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Julian - Chuyên gia tra cứu KQXS</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding-bottom: 40px;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Banner Hero */
+        .hero-banner {
+            margin: 24px 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            background-color: #1e293b;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Layout Main Content & Sidebar */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 868px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Feature Article Card */
+        .article-card {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .thumb-16-9 {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+        }
+
+        .article-body {
+            padding: 28px;
+        }
+
+        .article-tag {
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .article-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 16px;
+            color: #0f172a;
+        }
+
+        .article-content p {
+            margin-bottom: 16px;
+            color: #334155;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        /* Widget See More */
+        .widget-box {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 24px;
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-color);
+            color: #0f172a;
+        }
+
+        .see-more-link {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-weight: 600;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .see-more-link span {
+            color: var(--primary-color);
+        }
+
+        /* Profile Widget */
+        .profile-widget {
+            text-align: center;
+        }
+
+        .profile-widget img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 12px;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+
+        .profile-widget h3 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+
+        .profile-widget p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="https://davidjulian.thuctapvoh02.workers.dev/" class="brand">
+                <img src="https://sf-static.upanhlaylink.com/img/image_202608129c7cc19f3d10ff590ed14fbc663f952d.jpg" alt="David Julian Avatar">
+                <span>David Julian Blog</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="https://davidjulian.thuctapvoh02.workers.dev/">Trang Chủ</a></li>
+                <li><a href="#goc-chia-se">Góc Chia Sẻ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <img src="https://sf-static.upanhlaylink.com/img/image_20260812ac658a2c02e39cdeccfb8d56dba02544.jpg" alt="David Julian Banner">
+        </div>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            
+            <!-- Left Main Content Area -->
+            <main id="goc-chia-se">
+                <article class="article-card">
+                    <!-- Feature Blog Thumb 16:9 -->
+                    <img class="thumb-16-9" src="https://sf-static.upanhlaylink.com/img/image_20260819b5c94bd646031bba3f06aca54abbdea4.jpg" alt="Xem trực tiếp xổ số Vũng Tàu">
+                    
+                    <div class="article-body">
+                        <span class="article-tag">Trải Nghiệm & Chia Sẻ</span>
+                        <h1 class="article-title">Thói Quen Chiều Thứ 3 & Trải Nghiệm Xem Kết Quả Trực Tiếp Chuẩn Xác</h1>
+                        
+                        <div class="article-content">
+                            <p>Chào mọi người nha! Rất vui vì anh em đã ghé thăm góc nhỏ cá nhân này của mình.</p>
+                            
+                            <p>Chiều Thứ 3 tuần nào cũng vậy, tầm 16h10 rảnh rỗi sau một ngày làm việc là mình lại có một thói quen quen thuộc giữ suốt mấy năm nay rồi. Cứ đến đúng khung giờ này là mình lại mở điện thoại lên ngồi chờ xem trực tiếp <a href="https://xosothienphu.vn/xsvt-xo-so-vung-tau-sxvt.html" target="_blank" rel="noopener">xo so vung tau</a>. Cái cảm giác ngồi canh từng dải số nhảy qua từng giải quay thưởng nó vừa hồi hồi, vừa vui vui kiểu gì ấy, thành ra tuần nào tới giờ đó mà không mở lên xem là lại thấy thiêu thiếu ngay.</p>
+                            
+                            <p>Mấy thời gian đầu tìm chỗ xem cũng cực lắm, chuyển qua chuyển lại mấy trang mà trang thì giật lag, trang thì số hiện chậm rì. Đã vậy nhiều khi bận việc không xem trực tiếp được, tối về muốn ngó lại <a href="https://xosothienphu.vn/xsbl-xo-so-bac-lieu-sxbl.html" target="_blank" rel="noopener">kết quả xổ số bạc liêu</a> hay mấy đài cùng quay hôm đó cũng rắc rối vì nhiều nơi hiển thị rối mắt cực kỳ.</p>
+                            
+                            <p>Sau này may mắn biết đến Xổ số Thiên Phú thì mình mê luôn tới giờ. Dò trên Thiên Phú thích nhất ở chỗ là cập nhật siêu nhanh và chuẩn đét luôn. Hội đồng quay tới đâu là kết quả XSVT hiện lên ngay tới đó theo thời gian thực, không bị trễ một giây nào.</p>
+                            
+                            <p>Giao diện bên Thiên Phú cũng trình bày rất sạch sẽ, con số to rõ dễ nhìn nên xem trên điện thoại hay máy tính gì cũng mượt mà, tiện lợi lắm. Chiều Thứ 3 tầm 16h10 rảnh rỗi, anh em cứ ghé Xổ số Thiên Phú hóng kết quả trực tiếp cùng mình cho xôm nhé!</p>
+                        </div>
+                    </div>
+                </article>
+            </main>
+
+            <!-- Right Sidebar Area -->
+            <aside>
+                <!-- Profile Widget -->
+                <div class="widget-box profile-widget">
+                    <img src="https://sf-static.upanhlaylink.com/img/image_202608129c7cc19f3d10ff590ed14fbc663f952d.jpg" alt="David Julian">
+                    <h3>David Julian</h3>
+                    <p>Chào mừng bạn đến với trang blog cá nhân của mình. Nơi chia sẻ những thói quen, trải nghiệm sinh hoạt và mẹo hay thường ngày.</p>
+                </div>
+
+                <!-- See More Article Widget -->
+                <div class="widget-box">
+                    <div class="widget-title">📌 Bài Viết Nên Xem</div>
+                    <a href="https://davidjulian05.tawk.help/article/xo-so-vung-tau-ve-dinh-mua-rach-goc-co-linh-thuong-duoc-khong" target="_blank" rel="noopener" class="see-more-link">
+                        <span>👉</span>
+                        <div>Xổ số Vũng Tàu: Vé dính mưa rách góc có lĩnh thưởng được không?</div>
+                    </a>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Footer -->
+        <footer style="background-color: #0f172a; color: #94a3b8; border-radius: 12px; padding: 20px; font-size: 13px; text-align: center; margin-top: 40px;">
+            <p style="margin: 0 0 14px 0; font-weight: bold; color: #f8fafc; font-size: 14px;">🌐 Kênh Liên Kết & Hệ Sinh Thái</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; margin: 0;">
+                <a href="https://davidjulian-nine.vercel.app/" target="_blank" rel="noopener" title="Vercel" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=vercel.com&amp;sz=64" alt="Vercel" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://workers.cloudflare.com" target="_blank" rel="noopener" title="Cloudflare Workers" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=workers.cloudflare.com&amp;sz=64" alt="Cloudflare Workers" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://davidjulian.netlify.app/" target="_blank" rel="noopener" title="Netlify" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=netlify.com&amp;sz=64" alt="Netlify" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://davidjulian05.github.io" target="_blank" rel="noopener" title="GitHub" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=64" alt="GitHub" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://davidjulian05.codeberg.page/" target="_blank" rel="noopener" title="Codeberg" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=codeberg.org&amp;sz=64" alt="Codeberg" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://davidjulian05.onrender.com/" target="_blank" rel="noopener" title="Render" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=onrender.com&amp;sz=64" alt="Render" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://gitlab.com/davidjulian05" target="_blank" rel="noopener" title="GitLab" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=gitlab.com&amp;sz=64" alt="GitLab" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://www.pinterest.com/davidjulian0503/" target="_blank" rel="noopener" title="Pinterest" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=pinterest.com&amp;sz=64" alt="Pinterest" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
