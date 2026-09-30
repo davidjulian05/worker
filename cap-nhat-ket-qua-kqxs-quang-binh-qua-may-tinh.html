@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cập nhật Xổ số Quảng Bình (XSQB) qua máy tính - David Julian Blog</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding-bottom: 40px;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Banner Hero */
+        .hero-banner {
+            margin: 24px 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            background-color: #1e293b;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Layout Main Content & Sidebar */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 868px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Feature Article Card */
+        .article-card {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .thumb-16-9 {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+        }
+
+        .article-body {
+            padding: 28px;
+        }
+
+        .article-tag {
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .article-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 16px;
+            color: #0f172a;
+        }
+
+        .article-content h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 24px 0 12px 0;
+        }
+
+        .article-content p {
+            margin-bottom: 16px;
+            color: #334155;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .article-content ol, .article-content ul {
+            margin-bottom: 16px;
+            padding-left: 20px;
+            color: #334155;
+            font-size: 1.05rem;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .img-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .img-caption {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Widget See More */
+        .widget-box {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 24px;
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-color);
+            color: #0f172a;
+        }
+
+        .see-more-link {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-weight: 600;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        .see-more-link:last-child {
+            margin-bottom: 0;
+        }
+
+        .see-more-link span {
+            color: var(--primary-color);
+        }
+
+        /* Profile Widget */
+        .profile-widget {
+            text-align: center;
+        }
+
+        .profile-widget img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 12px;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+
+        .profile-widget h3 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+
+        .profile-widget p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="https://davidjulian.thuctapvoh02.workers.dev/" class="brand">
+                <img src="https://sf-static.upanhlaylink.com/img/image_202608129c7cc19f3d10ff590ed14fbc663f952d.jpg" alt="David Julian Avatar">
+                <span>David Julian Blog</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="https://davidjulian.thuctapvoh02.workers.dev/">Trang Chủ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <img src="https://sf-static.upanhlaylink.com/img/image_20260812ac658a2c02e39cdeccfb8d56dba02544.jpg" alt="David Julian Banner">
+        </div>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            
+            <!-- Left Main Content Area -->
+            <main id="goc-chia-se">
+                <article class="article-card">
+                    <!-- Feature Blog Thumb 16:9 -->
+                    <img class="thumb-16-9" src="https://i.postimg.cc/SxTzmhZZ/ve-so-quang-binh-2.jpg" alt="Cập nhật Xổ số Quảng Bình trực tiếp qua máy tính">
+                    
+                    <div class="article-body">
+                        <span class="article-tag">Xổ Số & Cuộc Sống</span>
+                        <h1 class="article-title">Cập nhật Xổ số Quảng Bình (XSQB) qua máy tính tiện lợi</h1>
+                        
+                        <div class="article-content">
+                            <p>Trong thời đại công nghệ số phát triển mạnh mẽ như hiện nay, việc theo dõi các chương trình giải trí và dịch vụ công ích đã trở nên thuận tiện hơn bao giờ hết. Đối với những Anh chị thường xuyên quan tâm đến chương trình xổ số kiến thiết tại khu vực miền Trung, đặc biệt là đài Quảng Bình, việc sử dụng máy tính để tra cứu thông tin không chỉ mang lại sự chủ động mà còn cung cấp một trải nghiệm thị giác tuyệt vời.</p>
+                            
+                            <p>Thay vì phải chờ đợi trước màn hình vô tuyến hoặc di chuyển đến các đại lý bán vé, Anh chị hoàn toàn có thể ngồi tại nhà hoặc văn phòng để tra cứu kết quả <a href="https://xosothienphu.vn/xsqb-xo-so-quang-binh-sxqb.html" target="_blank" rel="noopener">xs quang binh</a> và nắm bắt những thông tin mới nhất chỉ với vài thao tác chuột đơn giản.</p>
+
+                            <div class="img-container">
+                                <img src="https://i.postimg.cc/SxTzmhZZ/ve-so-quang-binh-2.jpg" alt="Vé số Quảng Bình">
+                                <p class="img-caption">Nguồn: Internet</p>
+                            </div>
+
+                            <h2>THỜI GIAN VÀ LỊCH MỞ THƯỞNG ĐỊNH KỲ CỦA XỔ SỐ QUẢNG BÌNH</h2>
+
+                            <p>Để việc theo dõi không bị gián đoạn, Anh chị cần nắm rõ lịch trình quay số của các đài trong khu vực. Xổ số miền Trung có một lịch trình mở thưởng rất cụ thể và được phân bổ đều cho các ngày trong tuần.</p>
+
+                            <p>Riêng đối với đài Quảng Bình, buổi quay số sẽ được tổ chức định kỳ vào mỗi thứ Năm hàng tuần. Đây là thời điểm mà nhiều người dân tại địa phương cũng như các khu vực lân cận cùng hướng về màn hình để đón xem các vòng quay.</p>
+
+                            <p>Khung giờ quay thưởng trực tiếp của xổ số miền Trung nói chung và đài Quảng Bình nói riêng thường bắt đầu từ 17h15 và kết thúc vào khoảng 17h35. Việc nắm bắt chính xác khung giờ này giúp Anh chị có thể sắp xếp thời gian làm việc và sinh hoạt hợp lý để không bỏ lỡ khoảnh khắc công bố các giải thưởng quan trọng.</p>
+
+                            <p>Đặc biệt, vào ngày thứ Năm, đài Quảng Bình sẽ cùng mở thưởng với hai đài khác trong khu vực là Bình Định và Quảng Trị. Sự kết hợp này tạo nên một buổi chiều rộn ràng cho những ai đang theo dõi bảng <a href="https://xosothienphu.vn/xsmt-xo-so-mien-trung-sxmt.html" target="_blank" rel="noopener">kqsxmtrung</a> và nắm giữ những tấm vé số truyền thống trên tay.</p>
+
+                            <h2>TRẢI NGHIỆM CẬP NHẬT KẾT QUẢ QUA MÁY TÍNH VỚI GIAO DIỆN HIỆN ĐẠI</h2>
+
+                            <p>Sử dụng máy tính để tra cứu kết quả mang lại những ưu điểm vượt trội về mặt hiển thị. Với màn hình có kích thước lớn và độ phân giải cao, toàn bộ bảng kết quả từ giải Đặc biệt đến giải Tám sẽ được hiển thị một cách rõ nét, giúp Anh chị dễ dàng đối chiếu mà không gây mỏi mắt. Các thao tác cuộn trang hay chuyển đổi giữa các kỳ quay số diễn ra vô cùng mượt mà, tạo cảm giác thoải mái khi sử dụng.</p>
+
+                            <div class="img-container">
+                                <img src="https://i.postimg.cc/LsGYZVFt/xo-so-quang-binh-ngay-29-09-2026-xo-so-thien-phu.jpg" alt="Xổ số Quảng Bình ngày 30/09/2026">
+                                <p class="img-caption">Xố số Quảng Bình ngày 30/09/2026 - Nguồn ảnh: Xổ số Thiên Phú</p>
+                            </div>
+
+                            <p>Hiện nay, các hệ thống website được tối ưu hóa để tương thích hoàn hảo với các trình duyệt phổ biến trên máy tính. Anh chị sẽ nhận thấy tốc độ tải dữ liệu cực nhanh, hình ảnh các con số hiện ra rõ ràng ngay khi hội đồng quay số công bố.</p>
+
+                            <p>Một trong những điểm cộng lớn nhất là khả năng cập nhật nhanh chóng, chuẩn xác và tiện lợi tại trang web Xổ số Thiên Phú, nơi cung cấp một giao diện tối giản nhưng đầy đủ thông tin cần thiết. Việc lọc kết quả theo ngày, theo đài hoặc xem lại lịch sử các kỳ quay trước đó đều được thực hiện rất thông minh, giúp tiết kiệm thời gian tối đa cho người dùng.</p>
+
+                            <h2>CHI TIẾT CƠ CẤU GIẢI THƯỞNG CỦA XỔ SỐ MIỀN TRUNG ĐÀI QUẢNG BÌNH</h2>
+
+                            <p>Xổ số kiến thiết Quảng Bình thuộc hệ thống xổ số miền Trung với loại hình vé số mệnh giá 10.000 VNĐ. Mỗi tờ vé số có 6 chữ số và được tổ chức quay thưởng 18 lần để tìm ra những người sở hữu các giải thưởng giá trị. Dưới đây là danh sách chi tiết các hạng giải thưởng mà Anh chị có cơ hội nhận được khi tham gia ủng hộ xổ số kiến thiết:</p>
+
+                            <ol>
+                                <li><strong>01 Giải Đặc biệt:</strong> Trị giá 2.000.000.000 VNĐ dành cho tấm vé trùng khớp hoàn toàn các chữ số.</li>
+                                <li><strong>10 Giải Nhất:</strong> Mỗi giải trị giá 30.000.000 VNĐ.</li>
+                                <li><strong>10 Giải Nhì:</strong> Mỗi giải trị giá 15.000.000 VNĐ.</li>
+                                <li><strong>20 Giải Ba:</strong> Mỗi giải trị giá 10.000.000 VNĐ.</li>
+                                <li><strong>70 Giải Tư:</strong> Mỗi giải trị giá 3.000.000 VNĐ.</li>
+                                <li><strong>100 Giải Năm:</strong> Mỗi giải trị giá 1.000.000 VNĐ.</li>
+                                <li><strong>300 Giải Sáu:</strong> Mỗi giải trị giá 400.000 VNĐ.</li>
+                                <li><strong>1.000 Giải Bảy:</strong> Mỗi giải trị giá 200.000 VNĐ.</li>
+                                <li><strong>10.000 Giải Tám:</strong> Mỗi giải trị giá 100.000 VNĐ.</li>
+                                <li><strong>09 Giải Phụ Đặc biệt:</strong> Mỗi giải trị giá 50.000.000 VNĐ dành cho các vé chỉ sai một chữ số ở hàng trăm ngàn so với giải Đặc biệt.</li>
+                                <li><strong>45 Giải Khuyến khích:</strong> Mỗi giải trị giá 6.000.000 VNĐ dành cho các vé sai một chữ số bất kỳ ở các hàng còn lại so với giải Đặc biệt.</li>
+                            </ol>
+
+                            <p>Việc hiểu rõ cơ cấu giải thưởng không chỉ giúp Anh chị nắm được giá trị lợi ích mình có thể nhận được mà còn thể hiện sự minh bạch, rõ ràng của loại hình xổ số kiến thiết truyền thống. Mỗi tấm vé không chỉ là một cơ hội mà còn là sự đóng góp thiết thực vào ngân sách địa phương.</p>
+
+                            <h2>THÔNG TIN LIÊN HỆ CÔNG TY XỔ SỐ KIẾN THIẾT QUẢNG BÌNH</h2>
+
+                            <p>Trong trường hợp Anh chị cần thực hiện các thủ tục liên quan đến việc nhận thưởng hoặc tìm hiểu thêm về quy định phát hành, việc biết địa chỉ trụ sở công ty là điều rất cần thiết. Công ty Xổ số kiến thiết Quảng Bình luôn sẵn sàng hỗ trợ khách hàng và đảm bảo quyền lợi cho người tham gia một cách tận tâm nhất.</p>
+
+                            <p><strong>Địa chỉ trụ sở chính:</strong> Số 8B Hương Giang, Phường Đồng Hới, Tỉnh Quảng Trị.</p>
+
+                            <p>Anh chị lưu ý nên bảo quản tờ vé số thật cẩn thận, tránh để bị rách, nát hoặc tẩy xóa để quá trình lĩnh thưởng diễn ra thuận lợi. Tờ vé số hợp lệ phải còn nguyên hình, nguyên khổ và được mua từ các đại lý hoặc người bán vé số dạo chính thống.</p>
+
+                            <h2>Ý NGHĨA NHÂN VĂN CỦA XỔ SỐ KIẾN THIẾT</h2>
+
+                            <p>Tham gia mua vé số truyền thống không chỉ là một hình thức giải trí lành mạnh mà còn mang đậm tính nhân văn sâu sắc. Với khẩu hiệu Ích nước lợi nhà, doanh thu từ hoạt động xổ số được đóng góp vào ngân sách nhà nước để xây dựng các công trình công cộng như trường học, bệnh viện, trạm y tế và các công trình phúc lợi xã hội khác. Mỗi tờ vé số mà Anh chị mua chính là một viên gạch góp phần xây dựng quê hương ngày càng giàu đẹp hơn.</p>
+
+                            <p>Sự chuyển mình của các hình thức tra cứu kết quả từ thủ công sang nền tảng kỹ thuật số đã giúp người dân tiếp cận thông tin một cách văn minh và nhanh chóng hơn. Việc cập nhật theo thời gian trực tiếp từ trường quay qua màn hình máy tính giúp mọi thứ trở nên công khai, minh bạch và tạo niềm tin tuyệt đối cho người tham gia.</p>
+
+                            <p>Hy vọng những chia sẻ trên đây đã giúp Anh chị có thêm thông tin hữu ích về cách thức cập nhật kết quả xổ số Quảng Bình qua máy tính. Hãy luôn là những người tham gia thông thái và ủng hộ xổ số kiến thiết truyền thống để cùng nhau xây dựng cộng đồng tốt đẹp hơn. Đừng quên truy cập thường xuyên vào Xổ số Thiên Phú để không bỏ lỡ các buổi quay thưởng trực tiếp diễn ra từ 17h15 đến 17h35 mỗi ngày.</p>
+                        </div>
+                    </div>
+                </article>
+            </main>
+
+            <!-- Right Sidebar Area -->
+            <aside>
+                <!-- Profile Widget -->
+                <div class="widget-box profile-widget">
+                    <img src="https://sf-static.upanhlaylink.com/img/image_202608129c7cc19f3d10ff590ed14fbc663f952d.jpg" alt="David Julian">
+                    <h3>David Julian</h3>
+                    <p>Chào mừng bạn đến với trang blog cá nhân của mình. Nơi chia sẻ những thói quen, trải nghiệm sinh hoạt và mẹo hay thường ngày.</p>
+                </div>
+
+                <!-- See More Article Widget -->
+                <div class="widget-box">
+                    <div class="widget-title">📌 Bài Viết Liên Quan & Tham Khảo</div>
+                    
+                    <a href="https://rentry.co/cap-nhat-ket-qua-xsqb-xo-so-quang-binh-ket-qua-sxqb-qua-may-tinh" target="_blank" rel="noopener" class="see-more-link">
+                        <span>👉</span>
+                        <div>Cập nhật kết quả XSQB - Xổ số Quảng Bình - Kết quả SXQB qua máy tính</div>
+                    </a>
+
+                    <a href="https://davidjulian.thuctapvoh02.workers.dev/cap-nhat-xo-so-thua-thien-hue-xstth-truc-tiep" target="_blank" rel="noopener" class="see-more-link">
+                        <span>👉</span>
+                        <div>Cập nhật Xổ số Thừa Thiên Huế (XSTTH) trực tiếp</div>
+                    </a>
+
+                    <a href="https://davidjulian05.tawk.help/article/xo-so-vung-tau-ve-dinh-mua-rach-goc-co-linh-thuong-duoc-khong" target="_blank" rel="noopener" class="see-more-link">
+                        <span>👉</span>
+                        <div>Xổ số Vũng Tàu: Vé dính mưa rách góc có lĩnh thưởng được không?</div>
+                    </a>
+
+                    <a href="https://www.leetchi.com/fr/c/tech-for-good-emergency-support-fund-for-street-lottery-vendors-9580807?u=566cf3ca-43bc-4bd6-bee7-019fb6747133&utm_source=copylink&utm_medium=social_sharing&utm_id=post_creation" target="_blank" rel="noopener" class="see-more-link">
+                        <span>👉</span>
+                        <div>Tech for Good: Quỹ hỗ trợ khẩn cấp cho người bán vé số dạo</div>
+                    </a>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Footer -->
+        <footer style="background-color: #0f172a; color: #94a3b8; border-radius: 12px; padding: 20px; font-size: 13px; text-align: center; margin-top: 40px;">
+            <p style="margin: 0 0 14px 0; font-weight: bold; color: #f8fafc; font-size: 14px;">🌐 Kênh Liên Kết & Hệ Sinh Thái</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; margin: 0;">
+                <a href="https://davidjulian-nine.vercel.app/" target="_blank" rel="noopener" title="Vercel" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=vercel.com&amp;sz=64" alt="Vercel" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://davidjulian.netlify.app/" target="_blank" rel="noopener" title="Netlify" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=netlify.com&amp;sz=64" alt="Netlify" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://davidjulian05.github.io" target="_blank" rel="noopener" title="GitHub" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=64" alt="GitHub" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://davidjulian05.codeberg.page/" target="_blank" rel="noopener" title="Codeberg" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=codeberg.org&amp;sz=64" alt="Codeberg" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://davidjulian05.onrender.com/" target="_blank" rel="noopener" title="Render" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=onrender.com&amp;sz=64" alt="Render" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://gitlab.com/davidjulian05" target="_blank" rel="noopener" title="GitLab" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=gitlab.com&amp;sz=64" alt="GitLab" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://www.pinterest.com/davidjulian0503/" target="_blank" rel="noopener" title="Pinterest" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=pinterest.com&amp;sz=64" alt="Pinterest" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
