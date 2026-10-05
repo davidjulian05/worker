@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cập nhật Xổ số Miền Nam (XSMN) trực tiếp - David Julian Blog</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding-bottom: 40px;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Banner Hero */
+        .hero-banner {
+            margin: 24px 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            background-color: #1e293b;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Layout Main Content & Sidebar */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 868px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Feature Article Card */
+        .article-card {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .thumb-16-9 {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+        }
+
+        .article-body {
+            padding: 28px;
+        }
+
+        .article-tag {
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .article-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 16px;
+            color: #0f172a;
+        }
+
+        .article-content h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 24px 0 12px 0;
+        }
+
+        .article-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 18px 0 8px 0;
+        }
+
+        .article-content p {
+            margin-bottom: 16px;
+            color: #334155;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .article-content ol, .article-content ul {
+            margin-bottom: 16px;
+            padding-left: 20px;
+            color: #334155;
+            font-size: 1.05rem;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .img-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .img-caption {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Widget See More */
+        .widget-box {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 24px;
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-color);
+            color: #0f172a;
+        }
+
+        .see-more-link {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-weight: 600;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        .see-more-link:last-child {
+            margin-bottom: 0;
+        }
+
+        .see-more-link span {
+            color: var(--primary-color);
+        }
+
+        /* Profile Widget */
+        .profile-widget {
+            text-align: center;
+        }
+
+        .profile-widget img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 12px;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+
+        .profile-widget h3 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+
+        .profile-widget p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="https://davidjulian.thuctapvoh02.workers.dev/" class="brand">
+                <img src="https://sf-static.upanhlaylink.com/img/image_202608129c7cc19f3d10ff590ed14fbc663f952d.jpg" alt="David Julian Avatar">
+                <span>David Julian Blog</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="https://davidjulian.thuctapvoh02.workers.dev/">Trang Chủ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <img src="https://sf-static.upanhlaylink.com/img/image_20260812ac658a2c02e39cdeccfb8d56dba02544.jpg" alt="David Julian Banner">
+        </div>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            
+            <!-- Left Main Content Area -->
+            <main id="goc-chia-se">
+                <article class="article-card">
+                    <!-- Feature Blog Thumb 16:9 -->
+                    <img class="thumb-16-9" src="https://sf-static.upanhlaylink.com/img/image_2026100558debefdcb78259802b273cbba7de60b.jpg" alt="Xổ số miền Nam trực tiếp">
+                    
+                    <div class="article-body">
+                        <span class="article-tag">Xổ Số & Cuộc Sống</span>
+                        <h1 class="article-title">Cập nhật Xổ số Miền Nam (XSMN) trực tiếp nhanh chóng</h1>
+                        
+                        <div class="article-content">
+                            <p>Chào bà con, xổ số kiến thiết miền Nam từ lâu đã trở thành một nét văn hóa giải trí quen thuộc và đầy thú vị trong đời sống hằng ngày của chúng ta. Với sự phát triển mạnh mẽ của công nghệ hiện nay, việc theo dõi kết quả xổ số đã trở nên thuận tiện hơn bao giờ hết.</p>
+                            
+                            <p>Thay vì phải tốn thời gian đợi tờ kết quả in ấn hay chờ người bán vé dạo, bà con hoàn toàn có thể chủ động cập nhật những dãy số mới nhất khi xem kết quả <a href="https://xosothienphu.vn/xsmn-xo-so-mien-nam-sxmn.html" target="_blank" rel="noopener">xổ số miền tây hôm nay</a> ngay trên chiếc điện thoại thông minh của mình.</p>
+
+                            <div class="img-container">
+                                <img src="https://sf-static.upanhlaylink.com/img/image_2026100558debefdcb78259802b273cbba7de60b.jpg" alt="Xổ số miền nam ngày 05/10/2026">
+                                <p class="img-caption">Xổ số miền nam ngày 05/10/2026 - Nguồn ảnh: Xổ số Thiên Phú</p>
+                            </div>
+
+                            <p>Dù bà con đang ở nhà, đang đi làm hay đang ngồi thư giãn tại quán cà phê, chỉ cần một vài thao tác chạm nhẹ trên màn hình là toàn bộ bảng kết quả sẽ hiện ra rõ ràng và minh bạch.</p>
+
+                            <p>Trải nghiệm xem trực tiếp này không chỉ mang lại sự hồi hộp, phấn khởi mà còn đảm bảo bà con luôn nắm bắt được thông tin sớm nhất ngay khi từng lồng cầu bắt đầu quay.</p>
+
+                            <h2>KHUNG GIỜ QUAY THƯỞNG VÀ LỊCH MỞ THƯỞNG XỔ SỐ MIỀN NAM</h2>
+
+                            <h3>Giờ quay thưởng hằng ngày</h3>
+                            <p>Đối với những ai thường xuyên mua vé số miền Nam, việc ghi nhớ khung giờ quay thưởng là vô cùng quan trọng. Theo quy định, chương trình quay thưởng trực tiếp của Xổ số miền Nam (XSMN) sẽ bắt đầu diễn ra vào lúc 16h10 và kết thúc vào khoảng 16h35 hằng ngày.</p>
+
+                            <p>Đây là thời gian mà các đài truyền hình địa phương cũng như các trang thông tin số bắt đầu cập nhật từng giải thưởng từ giải Tám cho đến giải Đặc biệt. Bà con nên sắp xếp thời gian để có thể đón xem trực tiếp, cảm nhận sự kịch tính khi từng trái bóng mang số thứ tự lần lượt hiện ra.</p>
+
+                            <h3>Lịch mở thưởng các đài trong tuần</h3>
+                            <p>Xổ số miền Nam có đặc điểm là mỗi ngày sẽ có từ ba đến bốn tỉnh thành khác nhau cùng tổ chức mở thưởng. Bà con cần nắm rõ lịch này để không nhầm lẫn giữa các đài khi tra cứu kết quả. Cụ thể lịch mở thưởng trong tuần như sau:</p>
+
+                            <ul>
+                                <li><strong>Thứ Hai:</strong> Bà con đón xem đài Thành phố Hồ Chí Minh, đài Đồng Tháp và đài Cà Mau.</li>
+                                <li><strong>Thứ Ba:</strong> Lịch quay thưởng thuộc về đài Bến Tre, đài Vũng Tàu và đài Bạc Liêu.</li>
+                                <li><strong>Thứ Tư:</strong> Kết quả sẽ được công bố tại đài Đồng Nai, đài Cần Thơ và đài Sóc Trăng.</li>
+                                <li><strong>Thứ Năm:</strong> Các đài Tây Ninh, An Giang và <a href="https://xosothienphu.vn/xsbth-xo-so-binh-thuan-sxbth.html" target="_blank" rel="noopener">so xo binh thuan</a> sẽ cùng tham gia mở thưởng.</li>
+                                <li><strong>Thứ Sáu:</strong> Bà con hãy chú ý kết quả từ đài Vĩnh Long, đài Bình Dương và đài Trà Vinh.</li>
+                                <li><strong>Thứ Bảy:</strong> Đây là ngày có nhiều đài nhất gồm Thành phố Hồ Chí Minh, Long An, Hậu Giang và Bình Phước.</li>
+                                <li><strong>Chủ Nhật:</strong> Ngày cuối tuần sẽ dành cho đài Tiền Giang, đài Kiên Giang và đài Đà Lạt.</li>
+                            </ul>
+
+                            <h2>CƠ CẤU GIẢI THƯỞNG XỔ SỐ MIỀN NAM CHI TIẾT</h2>
+
+                            <h3>Cơ cấu giải thưởng hấp dẫn cho vé mệnh giá 10.000 đồng</h3>
+                            <p>Một trong những lý do khiến bà con yêu thích xổ số miền Nam chính là hệ thống giải thưởng rất đa dạng và có giá trị cao. Mỗi tờ vé số chỉ có mệnh giá 10.000 đồng nhưng lại mang đến cơ hội nhận về những khoản thưởng rất lớn.</p>
+
+                            <p>Toàn bộ quy trình quay thưởng bao gồm 18 lần quay cho vé có 6 chữ số. Dưới đây là chi tiết các hạng giải mà bà con có thể nhận được:</p>
+
+                            <ol>
+                                <li><strong>Giải Đặc biệt:</strong> Chỉ có 01 giải duy nhất trị giá 2.000.000.000 đồng.</li>
+                                <li><strong>Giải Nhất:</strong> Có 10 giải, mỗi giải trị giá 30 triệu đồng.</li>
+                                <li><strong>Giải Nhì:</strong> Có 10 giải, mỗi giải trị giá 15 triệu đồng.</li>
+                                <li><strong>Giải Ba:</strong> Có 20 giải, mỗi giải trị giá 10 triệu đồng.</li>
+                                <li><strong>Giải Tư:</strong> Có 70 giải, mỗi giải trị giá 3 triệu đồng.</li>
+                                <li><strong>Giải Năm:</strong> Có 100 giải, mỗi giải trị giá 1 triệu đồng.</li>
+                                <li><strong>Giải Sáu:</strong> Có 300 giải, mỗi giải trị giá 400.000 đồng.</li>
+                                <li><strong>Giải Bảy:</strong> Có 1.000 giải, mỗi giải trị giá 200.000 đồng.</li>
+                                <li><strong>Giải Tám:</strong> Có 10.000 giải, mỗi giải trị giá 100.000 đồng.</li>
+                                <li><strong>Giải Phụ Đặc biệt:</strong> Có 09 giải, mỗi giải trị giá 50 triệu đồng dành cho những vé chỉ sai một chữ số ở hàng trăm ngàn so với giải Đặc biệt.</li>
+                                <li><strong>Giải Khuyến khích:</strong> Có 45 giải, mỗi giải trị giá 6 triệu đồng dành cho những vé trúng chữ số hàng trăm ngàn nhưng sai một chữ số ở bất kỳ hàng nào còn lại so với giải Đặc biệt.</li>
+                            </ol>
+
+                            <h2>TRẢI NGHIỆM NGƯỜI DÙNG SỐ KHI TRA CỨU KẾT QUẢ</h2>
+
+                            <h3>Công nghệ mang đến sự tiện lợi vượt trội</h3>
+                            <p>Là một người dùng hiện đại, chắc hẳn bà con luôn mong muốn sự nhanh chóng và đơn giản. Việc cập nhật nhanh chóng, chuẩn xác và tiện lợi tại trang web Xổ số Thiên Phú sẽ giúp bà con hoàn toàn hài lòng.</p>
+
+                            <div class="img-container">
+                                <img src="https://sf-static.upanhlaylink.com/img/image_20261005a63c5689b20edee2c97cc1c4c5384d2a.jpg" alt="Xổ số miền nam ngày 05/10/2026">
+                                <p class="img-caption">Xổ số miền nam ngày 05/10/2026 - Nguồn ảnh: Xổ số Thiên Phú</p>
+                            </div>
+
+                            <p>Hệ thống được tối ưu hóa để đảm bảo tốc độ tải trang mượt mà ngay cả khi có rất nhiều người cùng truy cập một lúc vào giờ cao điểm. Giao diện được thiết kế theo phong cách tối giản, loại bỏ những yếu tố rườm rà giúp bà con dễ dàng quan sát bảng kết quả một cách tập trung nhất.</p>
+
+                            <h3>Thao tác thông minh trên thiết bị di động</h3>
+                            <p>Bà con chỉ cần sử dụng ngón tay để thực hiện các thao tác chạm hoặc lướt nhẹ nhàng là có thể chuyển đổi giữa các đài hoặc xem lại lịch sử kết quả nhiều kỳ trước đó.</p>
+
+                            <p>Màu sắc của trang web cũng được nghiên cứu kỹ lưỡng để không gây mỏi mắt, đặc biệt là khi bà con theo dõi kết quả trong thời gian dài. Mọi thông tin đều được truyền tải trực tiếp từ trường quay, đảm bảo bà con luôn là những người đầu tiên nhận được tin vui thắng giải.</p>
+
+                            <h2>DANH SÁCH ĐỊA CHỈ TRỤ SỞ CÁC CÔNG TY XỔ SỐ MIỀN NAM</h2>
+
+                            <h3>Khi trúng thưởng bà con cần đến đâu</h3>
+                            <p>Để đảm bảo quyền lợi và nhận thưởng một cách an toàn, bà con nên biết địa chỉ trụ sở của các công ty xổ số kiến thiết tại khu vực miền Nam. Dưới đây là danh sách địa chỉ chính thức của 21 công ty thành viên:</p>
+
+                            <ul>
+                                <li><strong>TP. Hồ Chí Minh:</strong> 77 Trần Nhân Tôn, Phường An Đông, TP. Hồ Chí Minh.</li>
+                                <li><strong>Đồng Tháp:</strong> Số 01 Nguyễn Huệ, Phường Cao Lãnh, Tỉnh Đồng Tháp.</li>
+                                <li><strong>Cà Mau:</strong> 09 Đường Phan Ngọc Hiển, Phường An Xuyên, Tỉnh Cà Mau.</li>
+                                <li><strong>Bến Tre:</strong> Số 303A4, Đoàn Hoàng Minh, phường Phú Tân, tỉnh Vĩnh Long.</li>
+                                <li><strong>Bà Rịa - Vũng Tàu:</strong> 31 Đường 3 Tháng 2, Phường Tam Thắng, TP. Hồ Chí Minh.</li>
+                                <li><strong>Bạc Liêu:</strong> 07 Hai Bà Trưng, Phường Bạc Liêu, Tỉnh Cà Mau.</li>
+                                <li><strong>Đồng Nai:</strong> 1894 Nguyễn Ái Quốc, Khu Phố 4, Phường Trấn Biên, Tỉnh Đồng Nai.</li>
+                                <li><strong>Cần Thơ:</strong> Số 29, đường Cách Mạng Tháng Tám, phường Ninh Kiều, TP. Cần Thơ.</li>
+                                <li><strong>Sóc Trăng:</strong> Số 16, Đường Trần Hưng Đạo, Phường Phú Lợi, TP. Cần Thơ.</li>
+                                <li><strong>Tây Ninh:</strong> 315A Trần Hưng Đạo, Khu phố 1, Phường Tân Ninh, Tỉnh Tây Ninh.</li>
+                                <li><strong>An Giang:</strong> 64C Nguyễn Thái Học, phường Long Xuyên, An Giang.</li>
+                                <li><strong>Bình Thuận:</strong> 343 Võ Văn Kiệt, Phường Phú Thủy, Tỉnh Lâm Đồng.</li>
+                                <li><strong>Vĩnh Long:</strong> 51E Nguyễn Trung Trực, phường Tân Hạnh, Tỉnh Vĩnh Long.</li>
+                                <li><strong>Bình Dương:</strong> 01 Huỳnh Văn Nghệ, Phường Phú Lợi, TP. Hồ Chí Minh.</li>
+                                <li><strong>Trà Vinh:</strong> Số 54A Phạm Ngũ Lão, Phường Trà Vinh, Tỉnh Vĩnh Long.</li>
+                                <li><strong>Long An:</strong> Số 120, Tuyến tránh Quốc lộ 1, phường Long An, tỉnh Tây Ninh.</li>
+                                <li><strong>Hậu Giang:</strong> Số 151, đường 3 tháng 2, phường Vị Tân, TP. Cần Thơ.</li>
+                                <li><strong>Bình Phước:</strong> 725 Quốc lộ 14, phường Bình Phước, tỉnh Đồng Nai.</li>
+                                <li><strong>Tiền Giang:</strong> S5 Thủ Khoa Huân, Phường Mỹ Tho, Tỉnh Đồng Tháp.</li>
+                                <li><strong>Kiên Giang:</strong> Số 94 Đường 3 Tháng 2, Phường Rạch Giá, tỉnh An Giang.</li>
+                                <li><strong>Lâm Đồng (Đà Lạt):</strong> Số 4 - 6 Hồ Tùng Mậu, Phường Xuân Hương - Đà Lạt, Tỉnh Lâm Đồng.</li>
+                            </ul>
+
+                            <p>Xổ số kiến thiết miền Nam không chỉ mang lại niềm vui cá nhân mà còn đóng góp to lớn vào ngân sách nhà nước để xây dựng các công trình công cộng như trường học, bệnh viện và đường xá.</p>
+
+                            <p>Với tinh thần ích nước lợi nhà, bà con hãy luôn lựa chọn mua vé số tại các đại lý chính thống. Sự phát triển của các nền tảng số hiện nay giúp bà con tiếp cận thông tin minh bạch, dễ dàng hơn bao giờ hết.</p>
+
+                            <p>Đừng quên truy cập vào website Xổ số Thiên Phú để đón xem trực tiếp và tra cứu mọi thông tin về xổ số mỗi ngày. Chúc bà con có những giây phút thư giãn thật thoải mái và gặp nhiều thuận lợi khi tham gia loại hình giải trí lành mạnh này.</p>
+                        </div>
+                    </div>
+                </article>
+            </main>
+
+            <!-- Right Sidebar Area -->
+            <aside>
+                <!-- Profile Widget -->
+                <div class="widget-box profile-widget">
+                    <img src="https://sf-static.upanhlaylink.com/img/image_202608129c7cc19f3d10ff590ed14fbc663f952d.jpg" alt="David Julian">
+                    <h3>David Julian</h3>
+                    <p>Chào mừng bạn đến với trang blog cá nhân của mình. Nơi chia sẻ những thói quen, trải nghiệm sinh hoạt và mẹo hay thường ngày.</p>
+                </div>
+
+                <!-- See More Article Widget -->
+                <div class="widget-box">
+                    <div class="widget-title">📌 Bài Viết Liên Quan & Tham Khảo</div>
+                    
+                    <a href="https://slides.com/davidjulian05/nhung-chi-tiet-tren-bang-ket-qua-xsmn-thuong-bi-bo-qua-khi-doi-chieu-ve-so" target="_blank" rel="noopener" class="see-more-link">
+                        <span>👉</span>
+                        <div>Những chi tiết trên bảng kết quả XSMN thường bị bỏ qua khi đối chiếu vé số</div>
+                    </a>
+
+                    <a href="https://davidjulian.thuctapvoh02.workers.dev/cap-nhat-xo-so-thua-thien-hue-xstth-truc-tiep" target="_blank" rel="noopener" class="see-more-link">
+                        <span>👉</span>
+                        <div>Cập nhật Xổ số Thừa Thiên Huế (XSTTH) trực tiếp</div>
+                    </a>
+
+                    <a href="https://davidjulian.thuctapvoh02.workers.dev/cap-nhat-ket-qua-kqxs-quang-binh-qua-may-tinh" target="_blank" rel="noopener" class="see-more-link">
+                        <span>👉</span>
+                        <div>Cập nhật kết quả KQXS Quảng Bình qua máy tính</div>
+                    </a>
+
+                    <a href="https://davidjulian05.tawk.help/article/xo-so-vung-tau-ve-dinh-mua-rach-goc-co-linh-thuong-duoc-khong" target="_blank" rel="noopener" class="see-more-link">
+                        <span>👉</span>
+                        <div>Xổ số Vũng Tàu: Vé dính mưa rách góc có lĩnh thưởng được không?</div>
+                    </a>
+
+                    <a href="https://www.leetchi.com/fr/c/tech-for-good-emergency-support-fund-for-street-lottery-vendors-9580807?u=566cf3ca-43bc-4bd6-bee7-019fb6747133&utm_source=copylink&utm_medium=social_sharing&utm_id=post_creation" target="_blank" rel="noopener" class="see-more-link">
+                        <span>👉</span>
+                        <div>Tech for Good: Quỹ hỗ trợ khẩn cấp cho người bán vé số dạo</div>
+                    </a>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Footer -->
+        <footer style="background-color: #0f172a; color: #94a3b8; border-radius: 12px; padding: 20px; font-size: 13px; text-align: center; margin-top: 40px;">
+            <p style="margin: 0 0 14px 0; font-weight: bold; color: #f8fafc; font-size: 14px;">🌐 Kênh Liên Kết & Hệ Sinh Thái</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; margin: 0;">
+                <a href="https://davidjulian-nine.vercel.app/" target="_blank" rel="noopener" title="Vercel" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=vercel.com&amp;sz=64" alt="Vercel" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://davidjulian.netlify.app/" target="_blank" rel="noopener" title="Netlify" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=netlify.com&amp;sz=64" alt="Netlify" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://davidjulian05.github.io" target="_blank" rel="noopener" title="GitHub" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=64" alt="GitHub" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://davidjulian05.codeberg.page/" target="_blank" rel="noopener" title="Codeberg" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=codeberg.org&amp;sz=64" alt="Codeberg" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://davidjulian05.onrender.com/" target="_blank" rel="noopener" title="Render" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=onrender.com&amp;sz=64" alt="Render" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://gitlab.com/davidjulian05" target="_blank" rel="noopener" title="GitLab" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=gitlab.com&amp;sz=64" alt="GitLab" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+                <a href="https://www.pinterest.com/davidjulian0503/" target="_blank" rel="noopener" title="Pinterest" style="display: inline-flex; align-items: center; text-decoration: none; transition: transform 0.2s;">
+                    <img src="https://www.google.com/s2/favicons?domain=pinterest.com&amp;sz=64" alt="Pinterest" width="28" height="28" style="border-radius: 6px; background: #fff; padding: 2px;" />
+                </a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
